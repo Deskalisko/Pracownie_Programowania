@@ -1,0 +1,54 @@
+Przywrocenie zawartosci pliku (niedodanego do przechowalni) do wersji z ostatniego commita:
+git restore
+Usunięcie wersji pliku dodanej do przechowalni (unstage):
+git restore --staged
+
+Ta komenda pozwala na modyfikację ostatniego commita i nadanie mu nowej wiadomości:
+git commit --amend -m "..."
+
+Ta komenda umożliwia modyfikację ostatniego commita bez zmieniania jego wiadomości.
+Dodać lub usunąć pliki z commita, ale zachować oryginalną wiadomość.
+git commit --amend --no-edit
+
+git stash:
+Ta komenda służy do tymczasowego zapisania zmian, które wprowadziłeś w swoim repozytorium, ale których nie chcesz jeszcze commitować.
+Umożliwia to powrót do czystego stanu roboczego bez utraty pracy.
+
+Przykład użycia:
+
+git stash - Zapisuje bieżące zmiany i resetuje stan roboczy.
+git stash pop - Przywraca zapisane zmiany ze schowka i usuwa je ze stosu stasha.
+git stash apply - Przywraca zapisane zmiany ze schowka, ale nie usuwa ich ze stosu stasha.
+
+komenda git merge jest używana do scalania zmian z jednej gałęzi (branch) do innej.
+
+git rebase:
+przenoszenia lub integrowania serii commitów na nową bazę commitów. 
+Jest to szczególnie przydatne do utrzymywania czystej i liniowej historii commitów
+
+git reset --soft HEAD^ 
+jest używana do cofnięcia ostatniego commita,
+pozostawiając zmiany w stanie roboczym
+
+git reset --mixed HEAD^ to komenda używana do cofnięcia ostatniego commita, 
+przy czym zmiany w plikach pozostają niezatwierdzone (uncommitted), 
+ale są również usunięte z obszaru indeksowania (staging area).
+
+
+git reset --hard HEAD^ to komenda używana do cofnięcia ostatniego commita, 
+przy czym wszystkie zmiany wprowadzone w commitach zostają usunięte zarówno 
+ze stanu roboczego (working directory), jak i z obszaru indeksowania (staging area).
+
+git reset --hard ORIG_HEAD jest używana do przywrócenia stanu repozytorium 
+do poprzedniego stanu przed ostatnią operacją resetowania lub mergowania. 
+ORIG_HEAD jest wskaźnikiem, który Git automatycznie zapisuje przed wykonaniem 
+niektórych operacji, takich jak git reset czy git merge.
+
+git rebase -i HEAD~2 (interaktywny rebase) umożliwia edycję dwóch ostatnich commitów. 
+Opcja "squash" pozwala połączyć wybrane commity w jeden.
+
+git checkout hash_commita jest używane do przejścia 
+do konkretnego commita na podstawie jego hasha (id)
+
+
+
